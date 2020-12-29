@@ -1,0 +1,790 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github } from "@code-surfer/themes";
+import Code from "mdx-code";
+import { Notes } from "mdx-deck";
+
+export const theme = {
+  fonts: {
+    body: '"Inter", system-ui, sans-serif',
+    heading: '"Inter", sans-serif',
+    monospace: "Fira Code,Jetbrains Mono, monospace",
+  },
+  colors: {
+    text: "#FFF",
+    background: "#000",
+    primary: "#e3116c",
+  },
+  styles: {
+    CodeSurfer: {
+      tokens: {
+        "comment prolog doctype cdata": {
+          color: "#999988",
+          fontStyle: "italic",
+        },
+        namespace: {
+          opacity: 0.7,
+        },
+        "string attr-value": {
+          color: "#e3116c",
+        },
+        "punctuation operator": {
+          color: "#FFF",
+        },
+        "entity url symbol number boolean variable constant property regex inserted": {
+          color: "#36acaa",
+        },
+        "atrule keyword attr-name selector": {
+          color: "#00a4db",
+        },
+        "function deleted tag": {
+          color: "#d73a49",
+        },
+        "function-variable": {
+          color: "#6f42c1",
+        },
+        "tag selector": {
+          color: "#00009f",
+        },
+      },
+      title: {
+        backgroundColor: "#000",
+        color: "#FFF",
+      },
+      subtitle: {
+        color: "#000",
+        backgroundColor: "#fff",
+      },
+      pre: {
+        color: "#FFF",
+        backgroundColor: "#000",
+      },
+      code: {
+        color: "#FFF",
+        backgroundColor: "#000",
+      },
+    },
+  },
+};
+
+export const pres = {
+  fonts: {
+    body: '"Inter", system-ui, sans-serif',
+    heading: '"Inter", sans-serif',
+    monospace: "'Inter'",
+  },
+  ...theme
+};
+
+export const Highlight = (props) => (
+  <span
+    style={{
+      background: "rgb(255,0,106)",
+      background:
+        "linear-gradient(63deg, rgba(255,0,106,1) 0%, rgba(110,106,175,1) 46%, rgba(0,230,255,1) 100%)",
+      padding: "0.5em",
+      display: "inline-block",
+    }}
+  >
+    {props.children}
+  </span>
+);
+
+<h1>
+  {" "}
+  Intro to <Highlight>
+    <span>Open Source</span>
+  </Highlight> 🏗
+</h1>
+
+---
+
+<CodeSurfer theme={pres}>
+
+```js title="Who am I?"
+// rishi.ts
+export const name = "Rishi Kothari 👋👨‍💻";
+```
+
+```js title="Who am I?"
+// rishi.ts
+export const name = "Rishi Kothari 👋👨‍💻";
+export const location = "📚📍 Brampton";
+export const age = 15;
+```
+
+```js title="Who am I?"
+// rishi.ts
+export const name = "Rishi Kothari 👋👨‍💻";
+export const location = "📚📍 Brampton";
+export const age = 15;
+export const getLoves = [
+  "Formula One",
+  "Typescript",
+  "Open Source",
+  "GraphQL",
+].sort(() => 0.5 - Math.random())[0];
+```
+
+```js title="Who am I?"
+// rishi.ts
+export const name = "Rishi Kothari 👋👨‍💻";
+export const location = "📚📍 Brampton";
+export const age = 15;
+export const getLoves = [
+  "Formula One",
+  "Typescript",
+  "Open Source",
+  "GraphQL",
+].sort(() => 0.5 - Math.random())[0];
+export const socials = {
+  most: "@rishiosaur",
+  web: "rishi.cx",
+};
+```
+
+</CodeSurfer>
+
+---
+
+<Highlight>
+  <h1>Timeline</h1>
+</Highlight>
+
+---
+
+## 👀 Introduction [10 minutes]
+
+- What *is* Open Source?
+
+- The brief history.
+
+- Who cares?
+
+---
+
+## 🌳 Git & GitHub [10 minutes]
+
+- Introduction
+- Basics of Git
+
+- Basics of Github
+
+---
+
+## 👁 Real-world stuff! [10 minutes]
+
+- Looking at a repository
+- `.github` & repository management
+
+- Licenses
+
+
+---
+
+## 🎉 Putting it all together [30 minutes]
+
+- A brief overview.
+- Forking & Creating issues!
+
+- Your first PR
+
+---
+
+## Introduction
+
+<Highlight>
+  <h1>
+    What <i>is</i> Open Source?
+  </h1>
+</Highlight>
+
+---
+
+# A new paradigm for data fetching.
+
+- The better REST
+- Define what data you want to grab from the API
+- Have type-safe guarantees for your data
+- High-level constructs
+
+---
+
+# GraphQL SDL (Schema Design Language)
+
+# Server Specification
+
+---
+
+# SDL
+
+- GraphQL Language
+- Queries, Mutations, and everything in between with
+- Defines types for an API, and all the possible things you can do with it
+
+---
+
+<CodeSurfer theme={theme}>
+
+```graphql title="Describe your data"
+type Todo {
+  id: ID
+  title: String
+  completed: Boolean
+  user: User
+}
+
+type TodosPage {
+  data: [Todo]
+  links: PaginationLinks
+  meta: PageMetadata
+}
+
+type Query {
+  todos(options: PageQueryOptions): TodosPage
+  todo(id: ID!): Todo
+}
+```
+
+```graphql title="Ask for what you need"
+query Query {
+  todos {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+</CodeSurfer>
+
+---
+
+# Queries vs Mutations
+
+- Equivalent of REST request types
+
+- `Query` = GET request
+
+- `Mutation` = POST request
+
+---
+
+# Server Specification
+
+- A specification made by the GQL consortium to serve up GraphQL APIs
+- What you implement to make a GraphQL
+- Defines how GraphQL is parsed & queries resolved
+
+---
+
+# You as a 5-year-old
+
+`<Toy analogy/>`
+
+---
+
+# Why use GraphQL?
+
+---
+
+<CodeSurferColumns themes={[theme, github]}>
+
+<Step>
+
+```js
+fetch(`https://api.spacex.land/rest/capsules-upcoming`)
+  .then((resp) => resp.json())
+  .then(console.log);
+```
+
+```js
+const fetchSpaceX = fetch(
+  `https://api.spacex.land/graphql`,
+  {
+    body: JSON.stringify({
+      query: `
+        {
+  capsulesUpcoming {
+    status
+    id
+    type
+  }
+}
+      `,
+    }),
+  }
+)
+  .then((resp) => resp.json())
+  .then(console.log);
+```
+
+</Step>
+
+<Step>
+
+```js
+const urls = ["capsules-upcoming", "capsules", "cores"];
+
+Promise.all(
+  urls.map((id) =>
+    fetch(
+      `https://api.spacex.land/rest/${id}`
+    ).then((resp) => resp.json())
+  )
+).then(console.log);
+```
+
+```js
+const fetchSpaceX = fetch(
+  `https://api.spacex.land/graphql`,
+  {
+    body: JSON.stringify({
+      query: `
+        {
+  capsulesUpcoming {
+    status
+    id
+    type
+  }
+
+  capsules { 
+    status
+    id
+    type
+  }
+
+  cores {
+    status
+    id
+    types
+  }
+}
+      `,
+    }),
+  }
+)
+  .then((resp) => resp.json())
+  .then(console.log);
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+# Demo time!
+
+---
+
+<Code>
+
+```js
+require("isomorphic-unfetch")(
+  `https://api.spacex.land/graphql`,
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      query: `
+        {
+  capsulesUpcoming {
+    status
+    id
+    type
+  }
+
+  capsules {
+    status
+    id
+    type
+  }
+
+}
+      `,
+    }),
+  }
+)
+  .then((resp) => resp.json())
+  .then(console.log);
+```
+
+</Code>
+
+---
+
+## Using the GraphQL SDL
+
+<Highlight>
+  <h1>Introspection</h1>
+</Highlight>
+
+---
+
+# g.rishi.cx
+
+---
+
+# What do you want?
+
+- GraphQL's value prop. comes from the fact that you need to specify what you want to do
+- Introspection is great for when you're unsure of what you want to do
+
+---
+
+# Introspecting the API
+
+---
+
+# Interactions
+
+- Query or Mutation?
+- Types needed
+
+---
+
+# Creating the Query
+
+- You should have g.rishi.cx open right now
+
+---
+
+<CodeSurfer theme={theme}>
+
+```graphql title="Layout of the query"
+query Query {
+
+}
+```
+
+```graphql title="Add types we need"
+query Query {
+  todos {
+
+  }
+}
+```
+
+```graphql title="Add data"
+query Query {
+  todos {
+    data {
+
+    }
+  }
+}
+```
+
+```graphql title="Final layer of introspection"
+query Query {
+  todos {
+    data {
+      id
+    }
+  }
+}
+```
+
+```graphql title="Query done!" 1:7
+query Query {
+  todos {
+    data {
+      id
+    }
+  }
+}
+```
+
+
+```graphql title="Add in posts"
+query Query {
+  todos {
+    data {
+      id
+    }
+  }
+
+  posts {
+    data {
+      id
+    }
+  }
+}
+```
+
+
+```graphql title="Add in titles"
+query Query {
+  todos {
+    data {
+      id
+      title
+    }
+  }
+
+  posts {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+```graphql title="Add in comments"
+query Query {
+  todos {
+    data {
+      id
+      title
+    }
+  }
+
+  posts {
+    data {
+      id
+      title
+    }
+  }
+
+  comments {
+    data {
+      id
+      body
+    }
+  }
+}
+```
+
+
+```graphql title="Adding inputs"
+query Query {
+  todos(options:{
+
+  }) {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+```graphql title="Add options"
+
+query Query {
+  todos(options:{
+    paginate:{
+      limit:5,
+    }
+  }) {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+```graphql title="Finish pagination"
+
+query Query {
+  todos(options:{
+    paginate:{
+      limit:5,
+      page:3
+    }
+  }) {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+
+```graphql title="Add ID"
+query Query {
+  todos(options:{
+    paginate:{
+      limit:5,
+      page:3
+    }
+  }) {
+    data {
+      id
+      title
+    }
+  }
+
+  todo(id:"5") {
+    id
+    title
+  }
+}
+```
+
+```graphql title="Building a Fragment"
+query Query {
+  todos(options:{
+    paginate:{
+      limit:5,
+      page:3
+    }
+  }) {
+    data {
+      id
+      title
+    }
+  }
+
+  todo(id:"5") {
+    id
+    title
+  }
+}
+
+fragment FTodo on Todo {
+  id
+  title
+}
+```
+
+
+```graphql title="Replacing with Fragments"
+query Query {
+  todos(options:{
+    paginate:{
+      limit:5,
+      page:3
+    }
+  }) {
+    data {
+      ...FTodo
+    }
+  }
+
+  todo(id:"5") {
+    ...FTodo
+  }
+}
+
+fragment FTodo on Todo {
+  id
+  title
+}
+```
+
+</CodeSurfer>
+
+---
+
+# Recap
+
+- What GraphQL consists of
+- What the SDL looks like
+- Queries and Mutations
+- GraphQL Playground
+- Introspection technique
+- Wrote our own!
+
+---
+
+# Questions?
+
+---
+
+## Building a GraphQL API
+
+<Highlight>
+  <h1>Setup</h1>
+</Highlight>
+
+---
+
+
+<CodeSurfer theme={theme}>
+
+```bash
+$ git clone https://github.com/rishiosaur/gql.git 
+$ cd gql 
+$ yarn 
+$ yarn start
+```
+
+</CodeSurfer>
+
+---
+
+# What we'll be building
+
+todos.rishi.cx
+
+---
+
+# Components of a GraphQL Server
+
+- Server-side SDL
+
+- Resolvers
+
+---
+
+
+<CodeSurfer theme={theme}>
+
+```graphql title="Resolvers"
+query Query {
+  todos {
+    data {
+      id
+      title
+    }
+  }
+}
+```
+
+</CodeSurfer>
+
+---
+
+# What do we want this API to do?
+
+- CRD todos
+- One `Query`
+- Two `Mutations`
+
+---
+
+# Types
+
+- `Query`
+- `Mutation`
+- `Todo`
+
+---
+
+<CodeSurfer theme={theme}>
+
+```graphql title="Resolvers"
+type Query {
+  todos(): [Todo]
+}
+
+type Mutation {
+  createTodo(id:ID!, title:String!): Todo
+  deleteTodo(id:ID!): Boolean!
+}
+```
+
+</CodeSurfer>
+
+---
+
+`IMPLEMENT`
